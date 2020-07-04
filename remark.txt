@@ -1,0 +1,3 @@
+vue create sspp-vue
+
+cnpm install
