@@ -155,6 +155,8 @@
 import '../../assets/dist/js/adminlte.js'
 import sidebar from './sidebar'
 
+import '@fortawesome/fontawesome-free/css/all.min.css'
+
 export default {
   components: {
     sidebar
