@@ -1,3 +1,5 @@
+npm install -g @vue/cli
+
 vue create sspp-vue
 
 cnpm install
