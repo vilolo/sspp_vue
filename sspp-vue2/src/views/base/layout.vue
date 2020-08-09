@@ -129,7 +129,7 @@
     
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <router-view/>
+        <page/>
     </div>
 
     <!-- /.content-wrapper -->
@@ -154,12 +154,14 @@
 <script>
 import '../../assets/dist/js/adminlte.js'
 import sidebar from './sidebar'
+import page from './page'
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
 export default {
   components: {
-    sidebar
+    sidebar,
+    page
   }
 }
 

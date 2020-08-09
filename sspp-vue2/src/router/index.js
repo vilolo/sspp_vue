@@ -4,8 +4,11 @@ import Router from 'vue-router'
 import Layout from '@/views/base/layout'
 import Signin from '@/views/signin'
 import Home from '@/views/home'
+import Sspp from '@/views/sspp'
 import Demo from '@/views/demo'
 import NotFound from '@/views/404'
+import Temptw from '@/views/temptw'
+import Tempmy from '@/views/tempmy'
 
 Vue.use(Router)
 
@@ -35,12 +38,36 @@ const router = new Router({
             component: Home
           },
           {
-            path: "/demo",
-            name: "Demo",
+            path: "/sspp",
+            name: "sspp",
             meta: {
-              title: "Demo"
+              title: "sspp"
+            },
+            component: Sspp
+          },
+          {
+            path: "/demo",
+            name: "demo",
+            meta: {
+              title: "demo"
             },
             component: Demo
+          },
+          {
+            path: "/temptw",
+            name: "temptw",
+            meta: {
+              title: "temptw"
+            },
+            component: Temptw
+          },
+          {
+            path: "/tempmy",
+            name: "tempmy",
+            meta: {
+              title: "tempmy"
+            },
+            component: Tempmy
           },
         ]
       },  
