@@ -25,7 +25,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
             <li v-for="(item, index) in menu" v-bind:key="index" class="nav-item">
-                <router-link :to='item.url' class="nav-link" :class="curUrl === item.url.toLowerCase() ? 'active' : ''">
+                
+                <router-link :to='item.url' class="nav-link" v-bind:class="{active:curUrl === item.url.toLowerCase()}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                     {{item.name}}
@@ -45,13 +46,20 @@
 export default {
     data: function(){
         return {
-            curUrl: this.$route.path,
+            //curUrl: this.$route.path,
+            curUrl: '',
             menu: [
                 {
+                    name: 'Demo Pro',
+                    url: '/sspp2',
+                    icon: 'fa-laptop'
+                },
+                {
                     name: 'Demo',
-                    url: '/Sspp',
+                    url: '/sspp',
                     icon: 'fa-laptop'
                 }
+                
             ]
         }
     }

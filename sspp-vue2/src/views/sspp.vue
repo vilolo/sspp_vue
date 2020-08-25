@@ -8,7 +8,7 @@
         </div><br><hr>
         
         <div>
-            <span class="btn btn-primary" @click="openUrl(urlList.lookforList)" >3.选品分类列表，趋势</span>
+            <span class="btn btn-primary" @click="openUrl(urlList.lookforList)" >3.选品分类列表，趋势，关键词，打开两站</span>
         </div><br>
         
         <select @change="myChangeOne">
@@ -47,7 +47,7 @@
         <button @click="openUrl(urlList.enKeywordUrls, enKeyword)">英文</button>
         <br><br>
         <input v-model="cnKeyword" placeholder="zh-Simplified">
-        <button @click="openUrl(urlList.cnKeywordUrls, cnKeyword)">中文</button>
+        <button @click="openUrl(urlList.cnKeywordUrls, cnKeyword, true)">中文</button>
         <br><br>
         <input v-model="fantiKeyword" placeholder="zh-Traditional">
         <button @click="openUrl(urlList.fantiKeywordUrls, fantiKeyword)">繁体字</button>
@@ -56,8 +56,19 @@
 
         <hr>
         <div>
-            <span class="btn btn-primary" @click="openUPgoods(urlList.upgoodsList)" >4.上架：店小秘，定价，翻译，模板</span>
+            <span class="btn btn-primary" @click="openUPgoods(urlList.upgoodsList)" >4.上架：店小秘，定价，翻译，模板，关键词</span>
         </div><br><hr>
+
+        <div>
+            <span class="btn btn-primary" @click="openUrl(urlList.shopList)" >5.店铺参考优化，打开店铺，备忘图片</span>
+        </div><br>
+        <h2>店铺优化参考</h2>
+        <input v-model="myShopKeyword">
+        <button @click="openUrl(urlList.myShopUrl, myShopKeyword)">马来</button>
+        <br><br>
+        <input v-model="twShopKeyword">
+        <button @click="openUrl(urlList.twShopUrl, twShopKeyword)">台湾</button>
+        <br><br>
     </div>
 </template>
 <script>
@@ -69,14 +80,12 @@ import $ from 'jquery'
 export default {
     data: function(){
         return {
-             // ========== en =================
             enKeyword: '',
-
-            // ========== cn =================
             cnKeyword: '',
-
-            // ========== fanti =================
             fantiKeyword: '',
+
+            myShopKeyword: '',
+            twShopKeyword: '',
 
             urlList:urlList,
 
@@ -96,12 +105,12 @@ export default {
         }
     },
     methods: {
-        openUrl: function(urlList, keyword){
+        openUrl: function(urlList, keyword, isEncode){
             if (typeof(keyword) === 'undefined'){
                 keyword = ''
             }
 
-            if (keyword.length > 0){
+            if (keyword.length > 0 && isEncode == true){
                 keyword = $URL.encode(keyword)
             }
             
@@ -160,7 +169,7 @@ export default {
 
         openKeywordAll: function(){
             this.openUrl(urlList.enKeywordUrls, this.enKeyword)
-            this.openUrl(urlList.cnKeywordUrls, this.cnKeyword)
+            this.openUrl(urlList.cnKeywordUrls, this.cnKeyword, true)
             this.openUrl(urlList.fantiKeywordUrls, this.fantiKeyword)
         },
 

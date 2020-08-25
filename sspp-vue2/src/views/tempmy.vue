@@ -1,30 +1,34 @@
 <template>
 <div>== 马来 ==
 <pre>
-<textarea style="width: 800px; height: 800px;">
-歡迎光臨Vilolo 🎀卡漫 娛樂 居家生活專營館🎀
-    👀👉更多新款，優質好物持续開發中，期待寶寶們關注小鋪，不要錯過哦~
-    👀👉全场点赞3个以上商品有精美小礼品相送哦，下單時備註一下，禮品隨訂單一併寄出。
+<textarea style="width: 800px; height: 800px;">😃 Welcome To Jiangcz.my 😊
 
-====🌾折扣活動🌾====
-🌸
-🌸
+※ Product Features ※
+🥇 20 styles
+🥇 cute and good quality
 
-====🌾產品亮點🌾====
-🌸
+※ Product Details ※
+【Material】：Aggreko
+【Size】：5*5CM  5*10CM
 
+※ Package Contents ※
+1 * beautiful package Keychain
 
-====🌾產品檔案🌾====
-🌸
+------------------------------------------------------------------
+📝Shop Tips：
+✨China Stock & Ship within 3 days, and the shipping time is 10-15 days ✈️
+✨Our store mainly sells Children's stationery, Life entertainment, Anime around products.
+✨Our working hours are from Mon to Sun (9:00-18:00). If there are no reply, I am taking a break
+✨Any problem, please contact us.
+✨If you want wholesale, contact us.
 
-====🌾下單須知🌾====
-🌸 色差問題：商品色差因各種顯示器顯示效果會有所不同等原因導致商品實物與展示圖片存在一定色差，請以實物為准。
-🌸 尺寸問題：由於人工批量生產等原因，印刷圖案和尺寸與實物可能出現1-2cm誤差；批次不同，商品可能存在輕微差別，介意者慎拍。
+🎁Discount：
+1.Follow us get 2% off
+2.1-7RM Coupons
 
-====🌾取貨須知🌾====
-🌸 包裹抵達門市，請寶寶們盡快取件，超時的話，包裹會被退回銷毀的哦~
-🌸 如果沒空取件，可以代勞朋友代取哦~
-🌸 祝寶寶們生活愉快！💖
+🤞Happy shopping!
+
+#xxx #xxx #xxx #xxx
 </textarea>
 </pre>
 </div>

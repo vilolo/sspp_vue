@@ -35,12 +35,16 @@ let urlList = {
         'https://ads.google.com/aw/keywordplanner/home?ocid=344080210&euid=346009892&__u=8083458308&uscid=344080210&__c=7608148290&authuser=1',
         'https://seller.shopee.com.my/portal/categories',
         'https://seller.xiapi.shopee.cn/portal/categories',
+        'https://seller.my.shopee.cn/portal/marketing/pas/assembly/862728?from=1597334400&to=1597420799&group=yesterday',
+        'https://seller.xiapi.shopee.cn/portal/marketing/pas/assembly/4102764?from=1597334400&to=1597420799&group=yesterday',
+        'https://shopee.com.my/search?keyword=stationery',
+        'https://xiapi.xiapibuy.com/search?keyword=%E5%8B%95%E6%BC%AB',
     ],
 
-    mUrl: 'https://seller.my.shopee.cn/search',
+    mUrl: 'https://shopee.com.my/search',
     tUrl: 'https://xiapi.xiapibuy.com/search',
 
-    myCategoryCodeUrl: ['https://seller.my.shopee.cn/search?facet=@keyword@'],
+    myCategoryCodeUrl: ['https://shopee.com.my/search?facet=@keyword@'],
     twCategoryCodeUrl: ['https://xiapi.xiapibuy.com/search?facet=@keyword@'],
 
 
@@ -50,10 +54,12 @@ let urlList = {
         'http://198.35.45.87:7090/shop/getprice.html',
         'https://translate.google.cn/',
         'https://translate.google.cn/#view=home&op=translate&sl=zh-CN&tl=zh-TW',
+        'https://seller.my.shopee.cn/portal/marketing/pas/assembly/862728?from=1597334400&to=1597420799&group=yesterday',
+        'https://seller.xiapi.shopee.cn/portal/marketing/pas/assembly/4102764?from=1597334400&to=1597420799&group=yesterday'
     ],
 
     enKeywordUrls: [
-		'https://seller.my.shopee.cn/search?keyword=@keyword@',
+		'https://shopee.com.my/search?keyword=@keyword@',
 		'https://www.lazada.com.my/catalog/?q=@keyword@',
     ],
     cnKeywordUrls: [
@@ -63,6 +69,15 @@ let urlList = {
     ],
     fantiKeywordUrls: [
         'https://xiapi.xiapibuy.com/search?keyword=@keyword@',
+    ],
+    myShopUrl:['https://shopee.com.my/search_user?keyword=@keyword@'],
+    twShopUrl:['https://xiapi.xiapibuy.com/search_user?keyword=@keyword@'],
+    shopList:[
+        'https://shopee.com.my/search_user?keyword=jiangcz.my',
+        'https://shopee.com.my/search_user?keyword=anime',
+        'https://xiapi.xiapibuy.com/search_user?keyword=vilolo99',
+        'https://xiapi.xiapibuy.com/search_user?keyword=動漫',
+        'http://local.demo/hello.php',
     ],
 }
 

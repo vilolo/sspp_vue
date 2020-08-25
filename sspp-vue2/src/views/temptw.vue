@@ -1,8 +1,7 @@
 <template>
 <div>== 台湾 ==
 <pre>
-<textarea style="width: 800px; height: 800px;">
-歡迎光臨Vilolo 🎀卡漫 娛樂 居家生活專營館🎀
+<textarea style="width: 800px; height: 800px;">歡迎光臨Vilolo 🎀卡漫 娛樂 居家生活專營館🎀
     👀👉更多新款，優質好物持续開發中，期待寶寶們關注小鋪，不要錯過哦~
     👀👉全场点赞3个以上商品有精美小礼品相送哦，下單時備註一下，禮品隨訂單一併寄出。
 

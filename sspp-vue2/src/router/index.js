@@ -9,6 +9,7 @@ import Demo from '@/views/demo'
 import NotFound from '@/views/404'
 import Temptw from '@/views/temptw'
 import Tempmy from '@/views/tempmy'
+import Sspp2 from '@/views/sspp2'
 
 Vue.use(Router)
 
@@ -44,6 +45,14 @@ const router = new Router({
               title: "sspp"
             },
             component: Sspp
+          },
+          {
+            path: "/sspp2",
+            name: "sspp2",
+            meta: {
+              title: "sspp2"
+            },
+            component: Sspp2
           },
           {
             path: "/demo",
