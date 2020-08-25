@@ -9,6 +9,7 @@ import Demo from '@/views/demo'
 import NotFound from '@/views/404'
 import Temptw from '@/views/temptw'
 import Tempmy from '@/views/tempmy'
+import Tempth from '@/views/tempth'
 import Sspp2 from '@/views/sspp2'
 
 Vue.use(Router)
@@ -77,6 +78,14 @@ const router = new Router({
               title: "tempmy"
             },
             component: Tempmy
+          },
+          {
+            path: "/tempth",
+            name: "tempth",
+            meta: {
+              title: "tempth"
+            },
+            component: Tempth
           },
         ]
       },  

@@ -4,7 +4,8 @@ let urlList = {
     //店铺
     shops: [
         'https://shopee.com.my/jiangcz.my',
-        'https://xiapi.xiapibuy.com/vilolo99'
+        'https://xiapi.xiapibuy.com/vilolo99',
+        'https://th.xiapibuy.com/xiaofeifei'
     ],
     //翻译
     fanyi: [
@@ -30,6 +31,7 @@ let urlList = {
     templates: [
         'http://sspp.local/#/tempmy',
         'http://sspp.local/#/temptw',
+        'http://sspp.local/#/tempth',
     ],
     //备忘图片
     remarkImg: ['http://local.demo/hello.php'],
@@ -53,7 +55,11 @@ let urlList = {
 
         //台灣
         'https://seller.xiapi.shopee.cn/',
-        'https://seller.xiapi.shopee.cn/webchat/conversations'
+        'https://seller.xiapi.shopee.cn/webchat/conversations',
+
+        //泰国
+        'https://seller.th.shopee.cn/',
+        'https://seller.th.shopee.cn/webchat/conversations',
     ],
 
     //2.查看数据总览，商品表现，商品诊断，行销活动，销售额
