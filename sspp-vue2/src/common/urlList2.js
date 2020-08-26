@@ -5,7 +5,7 @@ let urlList = {
     shops: [
         'https://shopee.com.my/jiangcz.my',
         'https://xiapi.xiapibuy.com/vilolo99',
-        'https://th.xiapibuy.com/xiaofeifei'
+        'https://th.xiapibuy.com/xiaofeifei.th'
     ],
     //翻译
     fanyi: [
