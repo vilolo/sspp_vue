@@ -25,7 +25,8 @@ let urlList = {
     //定价
     getPrice: [
         'http://local.shop/my.html',
-        'http://local.shop/getprice.html'
+        'http://local.shop/getprice.html',
+        'http://local.shop/pricePro.html',
     ],
     //模板
     templates: [
