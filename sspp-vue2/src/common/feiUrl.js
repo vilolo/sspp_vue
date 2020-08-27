@@ -1,0 +1,7 @@
+let urlList = {
+
+}
+
+export {
+    urlList
+}

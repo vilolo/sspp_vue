@@ -50,6 +50,11 @@ export default {
             curUrl: '',
             menu: [
                 {
+                    name: 'FeiFei',
+                    url: '/fei',
+                    icon: 'fa-laptop'
+                },
+                {
                     name: 'Demo Pro',
                     url: '/sspp2',
                     icon: 'fa-laptop'
@@ -59,7 +64,6 @@ export default {
                     url: '/sspp',
                     icon: 'fa-laptop'
                 }
-                
             ]
         }
     }

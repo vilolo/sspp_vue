@@ -11,6 +11,7 @@ import Temptw from '@/views/temptw'
 import Tempmy from '@/views/tempmy'
 import Tempth from '@/views/tempth'
 import Sspp2 from '@/views/sspp2'
+import Fei from '@/views/fei'
 
 Vue.use(Router)
 
@@ -86,6 +87,14 @@ const router = new Router({
               title: "tempth"
             },
             component: Tempth
+          },
+          {
+            path: "/fei",
+            name: "fei",
+            meta: {
+              title: "fei"
+            },
+            component: Fei
           },
         ]
       },  
