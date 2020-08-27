@@ -11,7 +11,17 @@
         </div>
 
         <div class="row-item">
-            台湾站：<br>
+            <label for="twcb"><input id="twcb" style="margin-left:20px;" type="checkbox" checked> 台湾</label>
+            <label for="mycb"><input id="mycb" style="margin-left:20px;" type="checkbox" checked> 马来</label>
+            <label for="tgcb"><input id="tgcb" style="margin-left:20px;" type="checkbox" checked> 泰国</label>
+            <label for="bxcb"><input id="bxcb" style="margin-left:20px;" type="checkbox" checked> 巴西</label>
+        </div>
+
+        <div class="row-item">
+            台湾站：
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <br>
             <span class="btn btn-primary" @click="openUrl(urlList.dianxiaomi)" >订单，聊天，我的商品</span><br>
             <span class="btn btn-primary" @click="openUrl(urlList.dianxiaomi)" >批量打开工具</span>👇🏻👇🏻<br>
             <span class="btn btn-success" @click="openUrl(urlList.dianxiaomi)" >店铺</span>
@@ -198,4 +208,5 @@ export default {
 <style scoped>
 .row-item{padding: 20px; margin-bottom: 10px; border-bottom: 1px #ccc solid;}
 .row-item .btn{margin: 10px;}
+.row-item img{height: 50px; margin: 5px;}
 </style>
