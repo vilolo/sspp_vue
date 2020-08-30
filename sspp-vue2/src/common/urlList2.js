@@ -5,7 +5,8 @@ let urlList = {
     shops: [
         'https://shopee.com.my/jiangcz.my',
         'https://xiapi.xiapibuy.com/vilolo99',
-        'https://th.xiapibuy.com/xiaofeifei.th'
+        'https://th.xiapibuy.com/xiaofeifei.th',
+        'https://br.xiapibuy.com/youpin.br'
     ],
     //翻译
     fanyi: [
@@ -61,6 +62,10 @@ let urlList = {
         //泰国
         'https://seller.th.shopee.cn/',
         'https://seller.th.shopee.cn/webchat/conversations',
+
+        //巴西
+        'https://seller.br.shopee.cn/',
+        'https://seller.br.shopee.cn/webchat/conversations',
     ],
 
     //2.查看数据总览，商品表现，商品诊断，行销活动，销售额
