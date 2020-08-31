@@ -60,12 +60,12 @@ let urlList = {
         'https://seller.xiapi.shopee.cn/webchat/conversations',
 
         //泰国
-        'https://seller.th.shopee.cn/',
-        'https://seller.th.shopee.cn/webchat/conversations',
+        // 'https://seller.th.shopee.cn/',
+        // 'https://seller.th.shopee.cn/webchat/conversations',
 
         //巴西
-        'https://seller.br.shopee.cn/',
-        'https://seller.br.shopee.cn/webchat/conversations',
+        // 'https://seller.br.shopee.cn/',
+        // 'https://seller.br.shopee.cn/webchat/conversations',
     ],
 
     //2.查看数据总览，商品表现，商品诊断，行销活动，销售额
