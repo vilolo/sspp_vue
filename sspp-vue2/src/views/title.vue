@@ -22,15 +22,21 @@ export default {
             title:'',
             wordPool:[],
             wordShow:'',
-            wordPoolList: {
-                aa:'aaa{abc},b,c',
-                bb:'1, 2 2 ,3'
-            },
-            curKey:''
+            wordPoolList:'',
+            curKey:'',
+            test:''
         }
     },
-    created: function(){
-        this.category(Object.keys(this.wordPoolList)[0])
+     created: function(){
+        const s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = 'http://webtest.com/test.js';
+        document.body.appendChild(s);
+
+        s.onload = () => {
+            this.wordPoolList = window.test
+            this.category(Object.keys(this.wordPoolList)[0])
+        }
     },
     methods: {
         addword: function(str){
