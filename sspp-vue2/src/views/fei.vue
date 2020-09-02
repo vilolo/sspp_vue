@@ -10,6 +10,7 @@
             <span class="btn btn-primary" @click="openUrl(urlList.taobao)" >淘宝 | 阿里巴巴</span>
             <span class="btn btn-primary" @click="openUrl(urlList.title)" >标题关键词</span>
             <span class="btn btn-primary" @click="openUrl(urlList.price)" >定价</span>
+            <span class="btn btn-primary" @click="openUrl(urlList.template)" >模板</span>
         </div>
 
         <div class="row-item">
@@ -28,13 +29,11 @@
             <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
             <span class="btn btn-success" @click="openUrl( urlList.tw.shop)" >店铺</span>
             <span class="btn btn-success" @click="openUrl( urlList.tw.category)" >分类列表</span>
-            <span class="btn btn-success" @click="openUrl( urlList.tw.keyword)" >站内关键词</span>
-            <span class="btn btn-success" @click="openUrl( urlList.tw.templateDesc)" >模板（产品描述，标题规则）</span>
-            <span class="btn btn-success" @click="openUrl( urlList.tw.templateFeed)" >Feed模板</span>
-            <span class="btn btn-success" @click="openUrl( urlList.tw.templateCustomer)" >客户好评模板</span><br>
+            <span class="btn btn-success" @click="openUrl( urlList.tw.keyword)" >站内关键词</span><br>
             <span class="btn btn-primary" @click="openUrl()" >批量打开店铺数据</span>👇🏻👇🏻<br>
             <span class="btn btn-success" @click="openUrl( urlList.tw.dashboard)" >仪表盘</span>
             <span class="btn btn-success" @click="openUrl( urlList.tw.performance)" >商品表现</span>
+            <span class="btn btn-success" @click="openUrl( urlList.tw.diagnosis)" >商品诊断</span>
             <span class="btn btn-success" @click="openUrl( urlList.tw.ad)" >广告</span>
         </div>
 
