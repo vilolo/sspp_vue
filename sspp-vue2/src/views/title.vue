@@ -30,11 +30,11 @@ export default {
      created: function(){
         const s = document.createElement('script');
         s.type = 'text/javascript';
-        s.src = 'http://webtest.com/test.js';
+        s.src = 'http://local.shop/keywordList.js';
         document.body.appendChild(s);
 
         s.onload = () => {
-            this.wordPoolList = window.test
+            this.wordPoolList = window.keywordList
             this.category(Object.keys(this.wordPoolList)[0])
         }
     },
