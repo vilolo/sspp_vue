@@ -3,7 +3,7 @@ import router from './router'
 
 // 构建请求对象
 const http = axios.create({
-  baseURL: 'api/v1/',
+  baseURL: 'http://demo.local/index.php/',
   timeout: 1000 * 5,
   headers: {},
 })

@@ -13,6 +13,7 @@ import Tempth from '@/views/tempth'
 import Sspp2 from '@/views/sspp2'
 import Fei from '@/views/fei'
 import Title from '@/views/title'
+import TemplateShow from '@/views/templateShow'
 
 Vue.use(Router)
 
@@ -104,6 +105,14 @@ const router = new Router({
               title: "title"
             },
             component: Title
+          },
+          {
+            path: "/template",
+            name: "template",
+            meta: {
+              title: "template"
+            },
+            component: TemplateShow
           },
         ]
       },  
