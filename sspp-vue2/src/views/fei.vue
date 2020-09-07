@@ -23,8 +23,9 @@
 
         <div class="row-item tw-item" v-show="twShow">
             台湾站：
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <div class="images" v-viewer="{movable: false}">
+                <img v-for="src in twImages" :src="src" :key="src.id">
+            </div>
             <br>
             <span class="btn btn-primary" @click="openUrl( urlList.tw.orderAndChat)" >订单，聊天，我的商品</span><br>
             <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
@@ -40,8 +41,9 @@
 
         <div class="row-item tw-item" v-show="myShow">
             马来站：
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <div class="images" v-viewer="{movable: false}">
+                <img v-for="src in myImages" :src="src" :key="src.id">
+            </div>
             <br>
             <span class="btn btn-primary" @click="openUrl( urlList.my.orderAndChat)" >订单，聊天，我的商品</span><br>
             <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
@@ -57,8 +59,9 @@
 
         <div class="row-item tw-item" v-show="thShow">
             泰国站：
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <div class="images" v-viewer="{movable: false}">
+                <img v-for="src in thImages" :src="src" :key="src.id">
+            </div>
             <br>
             <span class="btn btn-primary" @click="openUrl( urlList.th.orderAndChat)" >订单，聊天，我的商品</span><br>
             <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
@@ -74,8 +77,9 @@
 
         <div class="row-item tw-item" v-show="brShow">
             巴西站：
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <div class="images" v-viewer="{movable: false}">
+                <img v-for="src in brImages" :src="src" :key="src.id">
+            </div>
             <br>
             <span class="btn btn-primary" @click="openUrl( urlList.br.orderAndChat)" >订单，聊天，我的商品</span><br>
             <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
@@ -106,10 +110,30 @@ export default {
             myShow:true,
             thShow:true,
             brShow:true,
+            twImages:[],
+            myImages:[],
+            thImages:[],
+            brImages:[],
         }
     },
 
     mounted: function(){
+        this.$http.get('v1/basic/image/index?dir=tw', [])
+        .then(res => {
+            this.twImages = res.data.tw
+        })
+        this.$http.get('v1/basic/image/index?dir=my', [])
+        .then(res => {
+            this.myImages = res.data.my
+        })
+        this.$http.get('v1/basic/image/index?dir=th', [])
+        .then(res => {
+            this.thImages = res.data.th
+        })
+        this.$http.get('v1/basic/image/index?dir=br', [])
+        .then(res => {
+            this.brImages = res.data.br
+        })
     },
 
     methods: {
