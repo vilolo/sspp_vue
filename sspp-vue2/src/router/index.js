@@ -14,6 +14,7 @@ import Sspp2 from '@/views/sspp2'
 import Fei from '@/views/fei'
 import Title from '@/views/title'
 import TemplateShow from '@/views/templateShow'
+import Image from '@/views/image'
 
 Vue.use(Router)
 
@@ -113,6 +114,14 @@ const router = new Router({
               title: "template"
             },
             component: TemplateShow
+          },
+          {
+            path: "/image",
+            name: "image",
+            meta: {
+              title: "image"
+            },
+            component: Image
           },
         ]
       },  
