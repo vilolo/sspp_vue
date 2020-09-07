@@ -2,15 +2,16 @@
     <div>
         <div class="row-item">
             工具列表：
+            <span class="btn btn-primary" @click="openUrl(urlList.allStore)" >打开所有订单和后台</span>
             <span class="btn btn-primary" @click="openUrl(urlList.dianxiaomi)" >店小秘</span>
             <span class="btn btn-primary" @click="openUrl(urlList.translate)" >翻译</span>
             <span class="btn btn-primary" @click="openUrl(urlList.remarkImg)" >备忘图片</span>
-            <span class="btn btn-primary" @click="openUrl(urlList.remarkText)" >备忘文本</span>
             <span class="btn btn-primary" @click="openUrl(urlList.trends)" >趋势</span>
-            <span class="btn btn-primary" @click="openUrl(urlList.taobao)" >淘宝 | 阿里巴巴</span>
             <span class="btn btn-primary" @click="openUrl(urlList.title)" >标题关键词</span>
             <span class="btn btn-primary" @click="openUrl(urlList.price)" >定价</span>
-            <span class="btn btn-primary" @click="openUrl(urlList.template)" >模板</span>
+            <span class="btn btn-primary" @click="openUrl(urlList.template)" >模板和备忘本</span><br>
+            <input v-model="searchKeyword">
+            <span class="btn btn-primary" @click="openUrl(urlList.taobao, searchKeyword, true)" >淘宝 | 阿里巴巴</span>
         </div>
 
         <div class="row-item">
@@ -37,6 +38,57 @@
             <span class="btn btn-success" @click="openUrl( urlList.tw.ad)" >广告</span>
         </div>
 
+        <div class="row-item tw-item" v-show="myShow">
+            马来站：
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <br>
+            <span class="btn btn-primary" @click="openUrl( urlList.my.orderAndChat)" >订单，聊天，我的商品</span><br>
+            <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
+            <span class="btn btn-success" @click="openUrl( urlList.my.shop)" >店铺</span>
+            <span class="btn btn-success" @click="openUrl( urlList.my.category)" >分类列表</span>
+            <span class="btn btn-success" @click="openUrl( urlList.my.keyword)" >站内关键词</span><br>
+            <span class="btn btn-primary" @click="openUrl()" >批量打开店铺数据</span>👇🏻👇🏻<br>
+            <span class="btn btn-success" @click="openUrl( urlList.my.dashboard)" >仪表盘</span>
+            <span class="btn btn-success" @click="openUrl( urlList.my.performance)" >商品表现</span>
+            <span class="btn btn-success" @click="openUrl( urlList.my.diagnosis)" >商品诊断</span>
+            <span class="btn btn-success" @click="openUrl( urlList.my.ad)" >广告</span>
+        </div>
+
+        <div class="row-item tw-item" v-show="thShow">
+            泰国站：
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <br>
+            <span class="btn btn-primary" @click="openUrl( urlList.th.orderAndChat)" >订单，聊天，我的商品</span><br>
+            <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
+            <span class="btn btn-success" @click="openUrl( urlList.th.shop)" >店铺</span>
+            <span class="btn btn-success" @click="openUrl( urlList.th.category)" >分类列表</span>
+            <span class="btn btn-success" @click="openUrl( urlList.th.keyword)" >站内关键词</span><br>
+            <span class="btn btn-primary" @click="openUrl()" >批量打开店铺数据</span>👇🏻👇🏻<br>
+            <span class="btn btn-success" @click="openUrl( urlList.th.dashboard)" >仪表盘</span>
+            <span class="btn btn-success" @click="openUrl( urlList.th.performance)" >商品表现</span>
+            <span class="btn btn-success" @click="openUrl( urlList.th.diagnosis)" >商品诊断</span>
+            <span class="btn btn-success" @click="openUrl( urlList.th.ad)" >广告</span>
+        </div>
+
+        <div class="row-item tw-item" v-show="brShow">
+            巴西站：
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598557600806&di=a5f2ccf496a63bd02f2dc1e68be783c7&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F26%2F20200726083630_iitUG.thumb.400_0.jpeg">
+            <br>
+            <span class="btn btn-primary" @click="openUrl( urlList.br.orderAndChat)" >订单，聊天，我的商品</span><br>
+            <span class="btn btn-primary" @click="openUrl()" >批量打开工具</span>👇🏻👇🏻<br>
+            <span class="btn btn-success" @click="openUrl( urlList.br.shop)" >店铺</span>
+            <span class="btn btn-success" @click="openUrl( urlList.br.category)" >分类列表</span>
+            <span class="btn btn-success" @click="openUrl( urlList.br.keyword)" >站内关键词</span><br>
+            <span class="btn btn-primary" @click="openUrl()" >批量打开店铺数据</span>👇🏻👇🏻<br>
+            <span class="btn btn-success" @click="openUrl( urlList.br.dashboard)" >仪表盘</span>
+            <span class="btn btn-success" @click="openUrl( urlList.br.performance)" >商品表现</span>
+            <span class="btn btn-success" @click="openUrl( urlList.br.diagnosis)" >商品诊断</span>
+            <span class="btn btn-success" @click="openUrl( urlList.br.ad)" >广告</span>
+        </div>
+
     </div>
 </template>
 <script>
@@ -49,6 +101,7 @@ export default {
     data: function(){
         return {
             urlList:urlList,
+            searchKeyword:'动漫',
             twShow:true,
             myShow:true,
             thShow:true,

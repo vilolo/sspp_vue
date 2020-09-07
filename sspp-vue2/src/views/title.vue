@@ -7,12 +7,14 @@
     </div>
 
     <div class="form-group">
-        <select multiple class="form-control custom-select" @change="category($event.target.value)">
-            <option v-for="(item, i) in wordPoolList"  v-bind:key="item.index">{{i}}</option>
+        <select multiple style="height:120px;" class="form-control custom-select" v-model="selectData" @change="category($event.target.value, true)">
+            <option v-for="(item, i) in wordPoolList" :value="i" v-bind:key="item.index">{{i}}</option>
         </select>
     </div>
 
-    <div class="form-group"><textarea class="form-control" @input="descInput" v-model="wordShow"></textarea></div>
+    <div class="form-group"><textarea style="height: 150px;" class="form-control" @input="descInput" v-model="wordShow"></textarea></div>
+    <input v-model="newName"><br>
+    <span class="btn btn-primary" @click="doSave">保存</span>
 </div>
 </template>
 <script>
@@ -22,38 +24,62 @@ export default {
             title:'',
             wordPool:[],
             wordShow:'',
-            wordPoolList:'',
+            wordPoolList:{},
+            wordPoolIdList:{},
             curKey:'',
-            test:''
+            selectData:[],
+            newName:''
         }
     },
-     created: function(){
-        const s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.src = 'http://local.shop/keywordList.js';
-        document.body.appendChild(s);
+    //  created: function(){
+    //     const s = document.createElement('script');
+    //     s.type = 'text/javascript';
+    //     s.src = 'http://local.shop/keywordList.js';
+    //     document.body.appendChild(s);
 
-        s.onload = () => {
-            this.wordPoolList = window.keywordList
-            this.category(Object.keys(this.wordPoolList)[0])
-        }
+    //     s.onload = () => {
+    //         this.wordPoolList = window.keywordList
+    //         this.category(Object.keys(this.wordPoolList)[0])
+    //     }
+    // },
+    created: function(){
+        this.$http.get('v1/basic/template/word', [])
+        .then(res => {
+            for(var key in res.data){
+                //this.wordPoolList.push({[res.data[key].name]:res.data[key].content})
+                this.wordPoolList[res.data[key].name] = res.data[key].content == null ? '' : res.data[key].content
+                this.wordPoolIdList[res.data[key].name] = res.data[key].id
+            }
+            this.category(Object.keys(this.wordPoolList)[0], true)
+        })
     },
     methods: {
         addword: function(str){
             this.title += str.replace(/{.*}/, '').replace(/(^\s*)|(\s*$)/g, "") + ' '
         },
-        category: function(k){
+        category: function(k, isChange){
+            this.wordShow = this.wordShow.replace('，', ",")
             if(this.wordShow.replace(/(^\s*)|(\s*$)/g, "").length > 1){
                 this.wordPoolList[this.curKey] = this.wordShow.replace(/(^\s*)|(\s*$)/g, "")
             }
-
-            this.wordShow = this.wordPoolList[k]
+            if(isChange){
+                this.wordShow = this.wordPoolList[k]
+                this.newName = k
+            }
             this.wordPool = this.wordPoolList[k].split(',')
-            
             this.curKey = k
+            this.selectData = [k]
         },
         descInput: function(){
             this.category(this.curKey)
+        },
+        doSave:function(){
+            this.$http.post('v1/basic/template/update?id='+this.wordPoolIdList[this.curKey], {
+                content:this.wordShow,
+                name:this.newName
+            }).then(res => {
+                alert(res.message)
+            })
         }
     }
 }

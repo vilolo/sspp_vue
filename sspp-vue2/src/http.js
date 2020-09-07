@@ -1,5 +1,6 @@
 import axios from 'axios'
 import router from './router'
+import Qs from 'qs'
 
 // 构建请求对象
 const http = axios.create({
@@ -29,7 +30,7 @@ http.post = (url, data) => {
     http({
       method: 'POST',
       url,
-      data: data
+      data: Qs.stringify(data)
     }).then(res => {
       resolve(res.data);
     }).catch(err => {
