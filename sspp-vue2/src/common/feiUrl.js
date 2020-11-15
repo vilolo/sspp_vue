@@ -96,7 +96,9 @@ let urlList = {
         performance:['https://seller.br.shopee.cn/datacenter/products/performance'],
         diagnosis:['https://seller.br.shopee.cn/datacenter/products/diagnosis'],
         ad:[],
-    }
+    },
+
+    market: ['http://sspp.local/#/market']
 }
 
 export {

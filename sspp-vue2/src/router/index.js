@@ -15,6 +15,7 @@ import Fei from '@/views/fei'
 import Title from '@/views/title'
 import TemplateShow from '@/views/templateShow'
 import Image from '@/views/image'
+import Market from '@/views/market'
 
 Vue.use(Router)
 
@@ -122,6 +123,14 @@ const router = new Router({
               title: "image"
             },
             component: Image
+          },
+          {
+            path: "/market",
+            name: "market",
+            meta: {
+              title: "market"
+            },
+            component: Market
           },
         ]
       },  

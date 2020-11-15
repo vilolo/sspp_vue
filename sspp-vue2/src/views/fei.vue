@@ -9,7 +9,9 @@
             <span class="btn btn-primary" @click="openUrl(urlList.trends)" >趋势</span>
             <span class="btn btn-primary" @click="openUrl(urlList.title)" >标题关键词</span>
             <span class="btn btn-primary" @click="openUrl(urlList.price)" >定价</span>
-            <span class="btn btn-primary" @click="openUrl(urlList.template)" >模板和备忘本</span><br>
+            <span class="btn btn-primary" @click="openUrl(urlList.template)" >模板和备忘本</span>
+            <span class="btn btn-primary" @click="openUrl(urlList.market)" >市场分析</span>
+            <br>
             <input v-model="searchKeyword">
             <span class="btn btn-primary" @click="openUrl(urlList.taobao, searchKeyword, true)" >淘宝 | 阿里巴巴</span>
         </div>
