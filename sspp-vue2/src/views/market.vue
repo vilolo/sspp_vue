@@ -4,7 +4,13 @@
             <label v-for="(item, index) in storeList" v-bind:key="item.id"><input :value="index" type="radio" v-model="store" name="platform" style="margin-left:20px;"> {{item}}</label>
         </div>
         <div>
-            Keyword: <input v-model="keyword" /> <button @click="marketByKeyword">查询</button>
+            价格区间: <input v-model="minPrice" /> —— <input v-model="maxPrice" /> 
+        </div><br>
+        <div>
+            Keyword: <input v-model="keyword" /> <button @click="marketByKeyword(1, keyword)">查询</button>
+        </div><br>
+        <div>
+            店铺: <input v-model="shopname" /> <button @click="marketByKeyword(2, shopname)">查询</button>
         </div>
         <br>
         <div>
@@ -46,9 +52,10 @@
                     <th>浏览</th>
                     <th>浏览avg</th>
                     <th>是否广告</th>
+                    <th>地区</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="items_list">
                 <tr v-for="item in goodsList" :key="item.id">
                     <td>
                         <a :href="item.url" target="_blank">{{item.name}}</a><br>
@@ -65,6 +72,7 @@
                     <td>{{item.view_count}}</td>
                     <td>{{item.view_count_avg}}</td>
                     <td>{{item.ads_keyword}}</td>
+                    <td>{{item.shop_location}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -80,7 +88,8 @@ export default {
         return {
             marketInfo: "",
             shopList: "",
-            keyword:'stationery',
+            keyword:'bag',
+            shopname:'ruixin001',
 
             total_count:0,
             count_sold:0,
@@ -100,44 +109,75 @@ export default {
                 br:'巴西',
             },
             store:'my',
-            dt:''
+            dt:'',
+            //&maxPrice=50&minPrice=10
+            maxPrice:0,
+            minPrice:0,
         }
     },
-    mounted: function(){
-        
+    watch: {
+        goodsList: function(){
+            this.$nextTick(function(){
+                if($('#sampleTable').DataTable()){
+                    $('#sampleTable').DataTable().destroy()
+                }
+                $('#sampleTable').DataTable({
+                    "aLengthMenu":[-1,100,50],
+                    "order": [[ 2, "desc" ]],
+                    
+                    //表头固定
+                    "fixedHeader": true,
+                    "scrollX": "1500px",
+                    "scrollY": "1000px",
+                })
+            })
+        }
     },
     methods:{
-        marketByKeyword: function(){
-            if (this.keyword.length<1){
-                alert('关键词不能为空')
+        marketByKeyword: function(type, word){
+            if (word.length<1){
+                alert('搜索词不能为空')
             }
+
+            $('.items_list').html('')
 
             if (this.lock){
                 this.lock = false
-                this.goodsList = []
+                // this.goodsList = []
                 var that = this
                 setTimeout(function () {
-                    that.$http.get('v1/basic/market/index', {keyword:that.keyword, store:that.store})
+                    that.$http.get('v1/basic/market/index', {keyword:word, store:that.store, type:type,minPrice:that.minPrice,maxPrice:that.maxPrice})
                     .then(res => {
                         that.lock = true
                         // console.log(res)
-                        that.total_count = res['data']['info']['total_count']
-                        that.count_sold = res['data']['info']['count_sold']
-                        that.total_ads_count = res['data']['info']['total_ads_count']
-                        that.avgPrice = res['data']['info']['avgPrice']
-                        that.avgSold = res['data']['info']['avgSold']
-                        that.goodsList = res['data']['goodsList']
-                        that.realAvgPrice = res['data']['info']['realAvgPrice']
+
+                        if (res['code'] == 200){
+                            that.total_count = res['data']['info']['total_count']
+                            that.count_sold = res['data']['info']['count_sold']
+                            that.total_ads_count = res['data']['info']['total_ads_count']
+                            that.avgPrice = res['data']['info']['avgPrice']
+                            that.avgSold = res['data']['info']['avgSold']
+                            that.goodsList = res['data']['goodsList']
+                            that.realAvgPrice = res['data']['info']['realAvgPrice']
+                        }else{
+                            alert(res['message'])
+                        }
+
+                        
                     }).then(() => {
-                        $('#sampleTable').DataTable({
-                            "aLengthMenu":[-1,100,50],
-                            "order": [[ 2, "desc" ]],
+                        // if($('#sampleTable').DataTable()){
+                        //     $('#sampleTable').DataTable().destroy()
+                        // }
+                    }).then(() => {
+                        // $('#sampleTable').DataTable({
+                        //     "aLengthMenu":[-1,100,50],
+                        //     "order": [[ 2, "desc" ]],
                             
-                            //表头固定
-                            "fixedHeader": true,
-                            "scrollX": "1000px",
-                            "scrollY": "1000px",
-                        })
+                        //     //表头固定
+                        //     "fixedHeader": true,
+                        //     "scrollX": "1500px",
+                        //     "scrollY": "1000px",
+                        // })
                     })
                 },1200);
 
