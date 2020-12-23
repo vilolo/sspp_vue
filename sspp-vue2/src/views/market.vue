@@ -61,7 +61,9 @@
                         <a :href="item.url" target="_blank">{{item.name}}</a><br>
                         <img width="100px" v-for="img in item.images" :key="img.id" :src="img" />
                     </td>
-                    <td>{{item.price}}</td>
+                    <td>
+                        {{item.price}}<br><button v-show="item.show" @click="collect(item)">收藏</button>
+                    </td>
                     <td>{{item.ctime}}</td>
                     <td class="bg-primary color-palette">{{item.days}}</td>
                     <td>{{item.historical_sold}}</td>
@@ -151,6 +153,10 @@ export default {
                         that.lock = true
                         // console.log(res)
 
+                        for(let key  in res['data']['goodsList']){
+                            res['data']['goodsList'][key]['show'] = true
+                        }
+
                         if (res['code'] == 200){
                             that.total_count = res['data']['info']['total_count']
                             that.count_sold = res['data']['info']['count_sold']
@@ -194,6 +200,16 @@ export default {
             }else{
                 alert('请勿频繁操作，或刷新重试')
             }     
+        },
+        collect: function(item){
+            this.$http.post('v1/basic/goods/collect',{url:'',img:'',name:'',statistics:'',platform:'',json_item:item})
+            .then(res => {
+                console.log(res)
+                if (res['code'] == 200){
+                    console.log('aaaa')
+                    item.show = false;
+                }
+            })
         }
     }
 }
