@@ -7,6 +7,10 @@
             价格区间: <input v-model="minPrice" /> —— <input v-model="maxPrice" /> 
         </div><br>
         <div>
+            oversea: <input name="co" v-model="oversea" value="-2" type="checkbox" />
+            location: <input name="co" v-model="oversea" value="-1" type="checkbox" />
+        </div><br>
+        <div>
             Keyword: <input v-model="keyword" /> <button @click="marketByKeyword(1, keyword)">查询</button>
         </div><br>
         <div>
@@ -120,6 +124,7 @@ export default {
             //&maxPrice=50&minPrice=10
             maxPrice:0,
             minPrice:0,
+            oversea:[],
         }
     },
     watch: {
@@ -145,6 +150,18 @@ export default {
             if (word.length<1){
                 alert('搜索词不能为空')
             }
+            let fh = ',';
+            let locationIds = this.oversea.map(function(obj){
+                if(obj!=null){
+                    if(obj!=null){
+                        return obj;
+                    }else{
+                        fh = ''
+                    }
+                }else{
+                    fh = ''
+                }
+            }).join(fh)
 
             $('.items_list').html('')
 
@@ -153,7 +170,7 @@ export default {
                 // this.goodsList = []
                 var that = this
                 setTimeout(function () {
-                    that.$http.get('v1/basic/market/index', {keyword:word, store:that.store, type:type,minPrice:that.minPrice,maxPrice:that.maxPrice})
+                    that.$http.get('v1/basic/market/index', {keyword:word, store:that.store, type:type,minPrice:that.minPrice,maxPrice:that.maxPrice,oversea:locationIds})
                     .then(res => {
                         that.lock = true
                         // console.log(res)
