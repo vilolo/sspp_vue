@@ -16,6 +16,7 @@ import Title from '@/views/title'
 import TemplateShow from '@/views/templateShow'
 import Image from '@/views/image'
 import Market from '@/views/market'
+import Collect from '@/views/collect'
 
 Vue.use(Router)
 
@@ -131,6 +132,14 @@ const router = new Router({
               title: "market"
             },
             component: Market
+          },
+          {
+            path: "/collect",
+            name: "collect",
+            meta: {
+              title: "collect"
+            },
+            component: Collect
           },
         ]
       },  

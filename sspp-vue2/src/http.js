@@ -5,6 +5,7 @@ import Qs from 'qs'
 // 构建请求对象
 const http = axios.create({
   baseURL: 'http://demo.local/index.php/',
+  // baseURL: 'http://198.35.45.87:9010/index.php/',
   timeout: 1000 * 20,
   headers: {},
 })

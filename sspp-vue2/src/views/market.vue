@@ -14,6 +14,11 @@
         </div>
         <br>
         <div>
+            <router-link to='/collect'>
+                <button>跳转收藏</button>
+            </router-link>
+        </div><br>
+        <div>
             <div class="btn btn-primary">商品总数: <span>{{total_count}}</span></div>&nbsp;&nbsp;
             <div class="btn btn-primary">当前查询销量之和: <span>{{count_sold}}</span></div>&nbsp;&nbsp;
             <div class="btn btn-primary">广告数: <span>{{total_ads_count}}</span></div>&nbsp;&nbsp;
@@ -204,9 +209,7 @@ export default {
         collect: function(item){
             this.$http.post('v1/basic/goods/collect',{url:'',img:'',name:'',statistics:'',platform:'',json_item:item})
             .then(res => {
-                console.log(res)
                 if (res['code'] == 200){
-                    console.log('aaaa')
                     item.show = false;
                 }
             })
